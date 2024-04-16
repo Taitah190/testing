@@ -46,6 +46,7 @@ red = im[:, :, 0:1]
 #red = red.tolist()
 green = im[:, :, 1:2]
 blue = im[:, :, 2:3]
-print(red[1:10])
+#print(red[1:10])
+
 #rethink.db('Project').table_create('NewArray').run()
 #rethink.db('Project').table('Array').insert({'red':red}).run()
