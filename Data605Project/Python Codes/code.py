@@ -42,21 +42,25 @@ def split(array):
 
 cap = cv2.VideoCapture('/home/ke/Desktop/database/testing/Data605Project/Python Codes/Rickroll.mp4')
 length = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-for i in range(length):
+'''for i in range(length):
     new = []
     cap.set(cv2.CAP_PROP_POS_FRAMES, i)
     ret, frame = cap.read()
     frame = np.array(frame)
     red, green, blue = split(frame)
-    name = str("frame_"+i)
+    name = "frame_"+str(i)
     rethink.db('Project').table_create(name).run()
-    for i in range(len(red)):
-        new.append({"red":red[i], "green":green[i], "blue":blue[i]})
+    for j in range(len(red)):
+        new.append({"red":red[j], "green":green[j], "blue":blue[j]})
     rethink.db('Project').table(name).insert(new).run()
-    print(i/length)
+    print(i/length)'''
+    
+###Avalible Code###
+#Everything Above has been tested and will work    
+    
 #rethink.db("test").table_create("array"run()
 #print(frame.ndim)
-
+print(length)
 #new = frames
 '''jsondata = json.dumps(frames)
 with open("/home/ke/Desktop/database/testing/Data605Project/Python Codes/test2.json", "w") as json_file:
