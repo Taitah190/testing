@@ -21,7 +21,7 @@ for i in range(100):
     #y=np.array(frame)
     frames.append(frame)
     print(i/length)'''
-#rethink.db("test").table_create("array").run()
+#rethink.db("test").table_create("array"run()
 #print(frame.ndim)
 
 #new = frames
@@ -36,17 +36,26 @@ with open("/home/ke/Desktop/database/testing/Data605Project/Python Codes/test2.j
 #print(frames[12].ndim)
 #newarray = np.stack(frames)
 #print(newarray.shape)
-
+new = []
 ###Line of Submission###
-im = cv2.imread("/home/ke/Desktop/database/testing/Data605Project/Python Codes/earth.jpg")
+im = cv2.imread("/Users/xukexukexuke/test/testing/Data605Project/Python Codes/earth.jpg")
 #print(im[1][1])
-im = im.astype(str)
+#im = im.astype(str)
+im = np.array(im)
 data = {'array_3d': im}
 red = im[:, :, 0:1]
-#red = red.tolist()
+red = red.tolist()
 green = im[:, :, 1:2]
+green = green.tolist()
 blue = im[:, :, 2:3]
+blue = blue.tolist()
 #print(red[1:10])
-
+'''for i in range(len(red)):
+    frames.append({"red":red[i], "green":green[i], "blue":blue[i]})
+    print(i)
+print(type(frames[1]))'''
 #rethink.db('Project').table_create('NewArray').run()
-#rethink.db('Project').table('Array').insert({'red':red}).run()
+#rethink.db('Project').table('Array').insert(frames).run()
+array = rethink.db('Project').table('Array').pluck('red').run()
+array = list(array)
+print(len(array))
